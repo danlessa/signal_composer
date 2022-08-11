@@ -27,7 +27,11 @@ class Signal():
             self._interpolator = interp1d(x, y)
         elif isinstance(_input, FunctionType):
             # TODO: take into consideration the interval size and the input span
-            self._interpolator = _input
+            # Map [0, `interval_size`] into `function_input_span`
+            x_0 = function_input_span[0]
+            dt = (function_input_span[1] - x_0)
+            f = lambda x: _input(x * dt + x_0)
+            self._interpolator = f
         else:
             raise TypeError("Input type not supported")
 

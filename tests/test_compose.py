@@ -2,15 +2,11 @@ from signal_composer import Signal
 import numpy as np
 
 def test_compose():
-
-
-
     X_list = [
         (1, 1),
         (1, 0),
         (0, 1)
     ]
-
     composed_signal = None
     signals = []
     for x in X_list:
