@@ -52,7 +52,7 @@ class Signal():
             x_lst *= self._interval_size
         else:
             x_lst *= interval_size
-        return self._interpolator(x_lst)
+        return np.array(self._interpolator(x_lst))
 
     __call__ = generate
 
